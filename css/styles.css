@@ -120,12 +120,12 @@ button:hover {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid #444;
 }
-
+/* centralizando colunas */
 .table-header h4,
 .table-data p {
     flex: 1;
 }
-
+/* ajustando a largura ilimitada da última coluna (3) - selecionando qual elemento terá estilo especial */
 .table-header h4:nth-child(3),
 .table-data p:nth-child(3) {
     max-width: 80px;
