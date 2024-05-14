@@ -65,12 +65,35 @@ function createTable(data) {
         div.appendChild(info)
         div.appendChild(obesity)
 
+    //colocando na tabela as informações
         imcTable.appendChild(div)
     });
 }
 
+function cleanInputs() {
+    heightInput.value = "";
+    weigthInput.value = "";
+}
+
+// validando digitos (não sendo diferente de 0 a 9 e g(global) e substutuindo td que não for número e ","por espaços vazios)
+function validDigits(text) {
+    return text.replace(/[^0-9,]/g, "");
+}
+
 // Inicialização do projeto
-createTable(data)
+createTable(data);
 
 // Eventos
+[heightInput, weigthInput].forEach((el) => {
+    el.addEventListener("input", (e) => {
+        const updateValue = validDigits(e.target.value);
 
+        e.target.value = updateValue;
+    })
+})
+//botao de limpar inputs
+clearBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    cleanInputs();
+})
